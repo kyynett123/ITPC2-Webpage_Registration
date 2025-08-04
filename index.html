@@ -5,30 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
 
-       <style>
+    <style>
   body {
-    background-color: #0e1021; /* dark navy background */
+    background-color: #0e1021;
     color: white;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
   }
 
-  .form-container {
-    background-color: #0e1021; /* matches body, for smooth background */
-    padding: 20px;
-    border-radius: 10px;
+  .form-box {
+    background-color: #0e1021;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     width: 100%;
     max-width: 500px;
   }
 
+  h1, p {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   input, select, textarea {
-    background-color: #1d1f36; /* input dark background */
+    background-color: #1d1f36;
     color: white;
     border: none;
-    padding: 8px;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
   }
 
   input[type="radio"],
@@ -41,8 +54,9 @@
     background-color: #1d1f36;
     color: white;
     border: 1px solid white;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 5px;
+    margin-top: 15px;
     cursor: pointer;
   }
 
@@ -52,74 +66,75 @@
 
   hr {
     border: 1px solid #444;
+    margin: 20px 0;
   }
 
   a {
-    color: #73b3ff; /* light blue for links */
+    color: #73b3ff;
   }
 </style>
 
     
 </head>
 <body>
-    <center>
-    <h1> Registration Form</h1>
+  <div class="form-box">
+    <h1>Registration Form</h1>
+    <p>Please fill out this form with the required information</p>
+
     <form onsubmit="return validateForm()" method="POST" action="login.php">
+      <label>Firstname</label>
+      <input type="text" id="firstname" name="firstname" required>
 
-        <p>Please fill out this form with the required information</p>
+      <label>Lastname</label>
+      <input type="text" id="lastname" name="lastname" required>
 
-        <label>Firstname</label>
-        <input type="text" id="firstname" name="firstname" required/><br><br>
+      <label>Email</label>
+      <input type="email" id="email" name="email" required>
 
-        <label>Lastname</label>
-        <input type="text" id="lastname" name="lastname" required/><br><br>
+      <label>Create Password</label>
+      <input type="password" id="password" name="password" required>
 
-        <label>Email</label>
-        <input type="email" id="email" name="email" required/><br><br>
+      <hr>
 
-        <label>Create Password</label>
-        <input type="password" id="password" name="password" required/><br><br>
+      <input type="radio" id="program" name="option" value="program">
+      <label for="program">Program</label>
 
-        <input type="radio" id="program" name="program" value="program">
-        <label for="program">Program</label><br>
+      <input type="radio" id="yearlevel" name="option" value="yearlevel">
+      <label for="yearlevel">Year Level</label>
 
-        <input type="radio" id="yearlevel" name="yearlevel" value="yearlevel">
-        <label for="yearlevel">YearLevel</label><br>
+      <input type="checkbox" id="terms" name="terms">
+      <label for="terms"> I accept the <a href="#">terms and conditions</a></label>
 
-        <input type="checkbox" id="terms" name="terms" value="terms">
-        <label for="terms"> I accept the terms and conditions</label><br>
+      <p>The school ensures data protection by adhering to relevant privacy laws
+        ,applying encryption, and requiring informed consent before any external sharing.
+      </p>
 
-        <p>The school ensures data protection by adhering to relevant privacy 
-            laws, applying encryption, and requiring informed consent before 
-                any external sharing.</p>
+      <hr>
 
-        <label for="file">Upload a profile picture:</label>
-        <input type="file" id="file" name="file"><br>
+      <label for="file">Upload a profile picture:</label>
+      <input type="file" id="file" name="file">
 
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday">
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" name="birthday">
 
-        <label for="specialization">Specialization?</label>
-        <select id="specialization" name="specialization">
-        <option value="" disabled selected> (select one) </option>
-  
+      <label for="specialization">Specialization?</label>
+      <select id="specialization" name="specialization">
+        <option value="" disabled selected>(select one)</option>
         <option value="Cyber_Security">Cyber Security</option>
         <option value="Animation">Animation</option>
         <option value="Business Informatics">Business Informatics</option>
         <option value="Software_Dev">Software_Dev</option>
-        </select><br>
+      </select>
 
-        <label for="bio">Bio:</label>
-        <textarea id="bio" name="bio" rows="4" cols="50" placeholder="I like coding on the beach..."></textarea>
+      <label for="bio">Bio:</label>
+      <textarea id="bio" name="bio" rows="4" placeholder="I like coding on the beach..."></textarea>
 
-
-        <button type ="submit">Submit<button/>
-        
+      <button type="submit">Submit</button>
     </form>
-</center>
+  </div>
 </body>
 
-</html>
+
 
 
 
